@@ -50,8 +50,8 @@ outputs:
   credenziali:
     description: "Credenziali per il salvataggio Firebase"
     value: ${{ steps.credentials-reader.outputs.credentials-id }}
-env:
-  PASSWORDS: 'TESTO'
+# env:
+#   PASSWORDS: 'TESTO'
 runs:
   using: "composite"
   steps:
@@ -77,17 +77,17 @@ runs:
         run: echo "::set-output name=random-number::$(echo $RANDOM)"
         shell: bash
 
-      # - name: lettore delle credenziali
-      #   id: credentials-reader
-      #   run: echo "::set-outputs name=who-to-greet::giuseppe"
-      #   shell: bash
+      - name: lettore delle credenziali
+        id: credentials-reader
+        run: echo "::set-outputs name=who-to-greet::giuseppe"
+        shell: bash
 
-      # - name: lettura variabili
-      #   run: |
-      #     echo "ecco il valore ${{steps.lettura.outputs.value}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-      #     echo "ecco ancora il valore ${{GITHUB.FOO}}"
-      #   #echo "ecco lettura RANDOM ${{ outputs.random-number }} e altro ${{ outputs.credenziali }} "
-      #   shell: bash
+      - name: lettura variabili
+        run: |
+          echo "ecco il valore ${{steps.lettura.outputs.value}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+          echo "ecco ancora il valore ${{GITHUB.FOO}}"
+        #echo "ecco lettura RANDOM ${{ outputs.random-number }} e altro ${{ outputs.credenziali }} "
+        shell: bash
 
     # - name: legge il file con le password
     #   run: |
