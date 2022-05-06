@@ -94,6 +94,17 @@ runs:
           echo 'Hi ${{ env.mascot }}'
         shell: bash
 
+      - name: Set branch name as env variable
+        run: |
+          currentbranch="STARGATE"
+          echo "running on $currentbranch"
+          echo "BRANCH=$currentbranch" >> $GITHUB_ENV
+        shell: bash
+
+      - name: riscrittura
+        run: |
+          echo "opening ${{env.BRANCH}}"
+
       - name: lettura variabili
         id: rilettura
         env:
