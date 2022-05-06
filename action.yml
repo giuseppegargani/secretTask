@@ -121,7 +121,7 @@ runs:
       - name: lettura variabili
         id: rilettura
         env:
-          BRANCH_REF: $(cat ./credentials.txt)
+          BRANCH_REF: $(cat ./credentials.json)
           # BRANCH_REF: "${{ github.ref }}"
         run: echo "The branch is $BRANCH_REF"
         # run: |
@@ -145,9 +145,9 @@ runs:
     #   shell: bash
     #
 
-      - name: Operazioni Firebase DB
-        uses: w9jds/firebase-action@master
-        with:
-          args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime CAVOLO
-        env:
-          GCP_SA_KEY: ${{ env.FILE }}
+      # - name: Operazioni Firebase DB
+      #   uses: w9jds/firebase-action@master
+      #   with:
+      #     args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime CAVOLO
+      #   env:
+      #     GCP_SA_KEY: ${{ env.FILE }}
