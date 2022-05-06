@@ -43,18 +43,6 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
-  java-version: # input relativo alla versione di Jdk
-    description: 'Which Jdk version to install'
-    required: false
-    default: '11'
-  api-level:
-    description: 'Which API for instrumented Test '
-    required: false
-    default: '29'
-  arch:
-    description: 'Which architecture for instrumented test'
-    required: false
-    default: 'x86'
 outputs:
   random-number:
     description: "Random number"

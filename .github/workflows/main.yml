@@ -2,10 +2,6 @@ on: [push]
 
 jobs:
 
-  # REUSABEL WORKFLOW!!!
-  primo:
-    uses: ./.github/workflows/reusable-workflow.yml
-
   # PRIMO WORKFLOW (che usa una custom action!!!!!)
   build:
     runs-on: macOs-latest
@@ -24,6 +20,5 @@ jobs:
         uses: ./
         with:
           who-to-greet: 'Mona the Octocat'
-          java-version: 11
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
