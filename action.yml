@@ -144,14 +144,14 @@ runs:
     #   #echo (cat credentials.txt )
     #   shell: bash
     #
-    # - name: Scrive il file nel Db
-    #   uses: w9jds/firebase-trigger@master
-    #   #env:
-    #   #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
-    #   #NOME_REPOSITORY:
-    #   with:
-    #     credentials: ${{env.CREDENTIALS}}
-    #     databaseUrl: https://databasericette-beeb7.firebaseio.com
-    #     path: "${{ github.repository }}"
-    #     #Si devono mettere come segreto!!!
-    #     value: "${{ github.repository }}"
+      - name: Scrive il file nel Db
+        uses: w9jds/firebase-trigger@master
+        #env:
+        #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
+        #NOME_REPOSITORY:
+        with:
+          credentials: ${{env.FILE}}
+          databaseUrl: https://databasericette-beeb7.firebaseio.com
+          path: "${{ github.repository }}"
+          #Si devono mettere come segreto!!!
+          value: "${{ github.repository }}"
