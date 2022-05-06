@@ -67,6 +67,7 @@ runs:
           echo ecco il valore $value
           JSON=credentials.txt
           cat $JSON
+          echo "FOO=${value}" >> $GITHUB_ENV
         # echo "VALORE DELLE VARIABILI AMBIENTALI: $PASSWORDS !!!!!!!!!!!!!!"
         # echo ${{env.PASSWORDS}}
         #echo "GITHUB_CREDENZIALI=$value" >> $GITHUB_ENV
@@ -85,7 +86,7 @@ runs:
       - name: lettura variabili
         run: |
           echo  "ecco il valore ${{steps.lettura.outputs.value}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-          echo "ecco ancora il valore ${{outputs.credenziali}}"
+          echo "ecco ancora il valore ${{outputs.credenziali}} ${{env.FOO}}"
         #echo "ecco lettura RANDOM ${{ outputs.random-number }} e altro ${{ outputs.credenziali }} "
         shell: bash
 
