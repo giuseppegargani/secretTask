@@ -100,6 +100,7 @@ runs:
           echo "running on $currentbranch"
           echo "BRANCH=$currentbranch" >> $GITHUB_ENV
           value=`cat credentials.txt`
+          echo "VALUE=$value" >> $GITHUB_ENV
         #fbcred= `cat credentials.txt`
         #echo "assegning variable $fbcred"
         shell: bash
