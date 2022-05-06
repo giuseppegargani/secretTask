@@ -79,13 +79,13 @@ runs:
 
       - name: lettore delle credenziali
         id: credentials-reader
-        run: echo "::set-outputs name=who-to-greet::giuseppe"
+        # run: echo "::set-outputs name=who-to-greet::giuseppe"
         shell: bash
 
       - name: lettura variabili
         run: |
-          echo  "ecco il valore ${{steps.lettura.outputs.value}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-          echo "ecco ancora il valore ${{env.FOO}}"
+          echo "ecco il valore ${{steps.lettura.outputs.value}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+          echo "ecco ancora il valore ${{GITHUB.FOO}}"
         #echo "ecco lettura RANDOM ${{ outputs.random-number }} e altro ${{ outputs.credenziali }} "
         shell: bash
 
