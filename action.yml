@@ -81,6 +81,7 @@ runs:
 
       - name: lettore delle credenziali
         id: credentials-reader
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
         run: |
           echo "::set-env name=cred::giuseppe"
           echo "nome delle variabili ${{env.cred}}"
