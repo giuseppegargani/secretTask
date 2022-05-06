@@ -1,0 +1,89 @@
+# action.yml 
+# AGGIORNARE LE VERSIONI DI TUTTE LE DIPENDENZE!!!!
+# RIVERIFICARE IL FUNZIONAMENTO E RIDURLE QUANDO POSSIBILE!!!!!!!
+# CONTINUE-ON-ERROR Si puo' mettere continue-on-error: true
+
+#name: 'Barsali_Hello_World'
+#description: 'Greet someone and record the time'
+#inputs:
+  #who-to-greet:  # id of input
+    #description: 'Who to greet'
+    #required: true
+    #default: 'World'
+#outputs:
+  #time: # id of output
+    #description: 'The time we greeted you'
+#runs:
+  #using: 'docker'
+  #image: 'Dockerfile'
+  #args:
+    #- ${{ inputs.who-to-greet }}
+
+#Queste righe vanno dentro il file Dockerfile!!!!!!!!!!!!
+# Container image that runs your code
+#FROM alpine:3.10
+
+# Copies your code file from your action repository to the filesystem path `/` of the container
+#COPY entrypoint.sh /entrypoint.sh
+
+# change permission to execute the script and
+# RUN chmod +x /entrypoint.sh
+
+# Code file to execute when the docker container starts up (`entrypoint.sh`)
+#ENTRYPOINT ["/entrypoint.sh"]
+
+# Si possono anche eseguire files locali!!!!!!!!! purche' con il permesso di esecuzione!!!!
+# Si potrebbe anche scegliere di inserire una serie di operazioni in un file Linux!!! ma comunque potrebbe non essere necessario
+
+
+name: 'Barsali_Hello_World'
+description: 'Greet someone'
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+  java-version: # input relativo alla versione di Jdk
+    description: 'Which Jdk version to install'
+    required: false
+    default: '11'
+  api-level:
+    description: 'Which API for instrumented Test '
+    required: false
+    default: '29'
+  arch:
+    description: 'Which architecture for instrumented test'
+    required: false
+    default: 'x86'
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
+runs:
+  using: "composite"
+  steps:
+
+    - name: legge il file con le password
+      run: |
+        ls
+        echo 'eccomi'
+        JSON=$(cat ./credentials.txt)
+        echo $JSON
+        echo GITHUB_CREDENTIALS=$(cat ./credentials.txt) >> $GITHUB_ENV
+      #JSON=$(cat ./credential.txt)
+      #echo (cat credentials.txt )
+      shell: bash
+
+    - name: Scrive il file nel Db
+      uses: w9jds/firebase-trigger@master
+      #env:
+      #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
+      #NOME_REPOSITORY:
+      with:
+        credentials: ${{env.CREDENTIALS}}
+        databaseUrl: https://databasericette-beeb7.firebaseio.com
+        path: "${{ github.repository }}"
+        #Si devono mettere come segreto!!!
+        value: "${{ github.repository }}"
+
+    
