@@ -60,6 +60,8 @@ runs:
           echo ecco il valore $value
           JSON=credentials.txt
           cat $JSON
+          echo "GITHUB_CREDENZIALI=$value" >> $GITHUB_ENV
+          echo "${GITHUB_CREDENZIALI}"
         shell: bash
 
     # - name: legge il file con le password
