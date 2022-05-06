@@ -84,12 +84,12 @@ runs:
         run: echo "::set-outputs name=who-to-greet::giuseppe"
         shell: bash
 
-      # - name: lettura variabili
-      #   run: |
-      #     echo "ecco il valore ${{steps.lettura.outputs.value}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-      #     echo "ecco ancora il valore ${{GITHUB.FOO}}"
-      #   #echo "ecco lettura RANDOM ${{ outputs.random-number }} e altro ${{ outputs.credenziali }} "
-      #   shell: bash
+      - name: lettura variabili
+        run: |
+          echo "ecco il valore ${{steps.lettura.outputs.value}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+          echo "ecco ancora il valore ${{GITHUB.FOO}} ed anche ${{env.PASSWORDS}}"
+        #echo "ecco lettura RANDOM ${{ outputs.random-number }} e altro ${{ outputs.credenziali }} "
+        shell: bash
 
     # - name: legge il file con le password
     #   run: |
