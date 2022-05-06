@@ -85,7 +85,7 @@ runs:
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         run: |
-          echo "::set-env name=luce::'giuseppe'"
+          echo "::set-env name=luce::giuseppe"
           echo "nome delle variabili ${{env.luce}}"
         shell: bash
 
