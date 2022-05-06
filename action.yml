@@ -97,9 +97,10 @@ runs:
 
       - name: Set branch name as env variable
         run: |
-          echo 'VALORE<<EOF' >> $GITHUB_ENV
-          cat ./credentials.txt >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
+          echo FILE=Example.json >> $GITHUB_ENV
+        # echo 'VALORE<<EOF' >> $GITHUB_ENV
+          # cat ./credentials.txt >> $GITHUB_ENV
+          # echo 'EOF' >> $GITHUB_ENV
         # currentbranch="STARGATE"
           # echo "running on $currentbranch"
           # value=`cat credentials.txt`
@@ -111,8 +112,9 @@ runs:
 
       - name: riscrittura
         run: |
-          echo "----------------------- OPENING ${{env.VALORE}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-          echo "OPENING ${{env.VALORE}}"
+          cat ${{env.FILE}}
+        # echo "----------------------- OPENING ${{env.VALORE}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+          # echo "OPENING ${{env.VALORE}}"
         shell: bash
 
       - name: lettura variabili
