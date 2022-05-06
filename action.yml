@@ -55,7 +55,7 @@ runs:
         run: |
           ls
           cat credentials.txt
-          value=`cat Example.json`
+          value=`cat credentials.txt`
           echo $value
           echo ecco il valore $value
           JSON=credentials.txt
