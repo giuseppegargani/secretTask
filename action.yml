@@ -92,7 +92,7 @@ runs:
       - name: lettura variabili
         id: rilettura
         env:
-          BRANCH_REF: "michele"
+          BRANCH_REF: credentials.txt
           # BRANCH_REF: "${{ github.ref }}"
         run: echo "The branch is $BRANCH_REF"
         # run: |
