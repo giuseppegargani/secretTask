@@ -97,18 +97,21 @@ runs:
 
       - name: Set branch name as env variable
         run: |
-          currentbranch="STARGATE"
-          echo "running on $currentbranch"
-          value=`cat credentials.txt`
-          echo "BRANCH=$currentbranch" >> $GITHUB_ENV
-          echo "VALORE='$value'" >> $GITHUB_ENV
+          echo 'VALORE<<EOF' >> $GITHUB_ENV
+          cat ./credentials.txt >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+        # currentbranch="STARGATE"
+          # echo "running on $currentbranch"
+          # value=`cat credentials.txt`
+          # echo "BRANCH=$currentbranch" >> $GITHUB_ENV
+          # echo "VALORE=$value" >> $GITHUB_ENV
         #fbcred= `cat credentials.txt`
         #echo "assegning variable $fbcred"
         shell: bash
 
       - name: riscrittura
         run: |
-          echo "----------------------- opening ${{env.BRANCH}} e ${{env.VALORE}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+          echo "----------------------- OPENING ${{env.VALORE}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
           echo "OPENING ${{env.VALORE}}"
         shell: bash
 
