@@ -100,7 +100,7 @@ runs:
           echo "running on $currentbranch"
           echo "BRANCH=$currentbranch" >> $GITHUB_ENV
           fbcred= `cat credentials.txt`
-          echo "assegning variable $fbcred"
+        #echo "assegning variable $fbcred"
         shell: bash
 
       - name: riscrittura
