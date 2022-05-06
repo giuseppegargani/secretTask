@@ -77,10 +77,10 @@ runs:
         run: echo "::set-output name=random-number::$(echo $RANDOM)"
         shell: bash
 
-      - name: lettore delle credenziali
-        id: credentials-reader
-        run: echo "::set-outputs name=who-to-greet::giuseppe"
-        shell: bash
+      # - name: lettore delle credenziali
+      #   id: credentials-reader
+      #   run: echo "::set-outputs name=who-to-greet::giuseppe"
+      #   shell: bash
 
       - name: lettura variabili
         run: |
