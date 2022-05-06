@@ -50,7 +50,6 @@ outputs:
   credenziali:
     description: "Credenziali per il salvataggio Firebase"
     value: ${{ steps.credentials-reader.outputs.credentials-id }}
-    default: 'antonio'
 env:
   PASSWORDS: 'TESTO'
 runs:
