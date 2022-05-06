@@ -70,7 +70,7 @@ runs:
         shell: bash
 
       - name: lettura variabili
-        run: echo  "ecco il valore: ${{steps.lettura.outputs.value}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        run: echo  "ecco il valore ${{steps.lettura.outputs.value}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
         shell: bash
 
     # - name: legge il file con le password
