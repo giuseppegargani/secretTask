@@ -50,8 +50,8 @@ outputs:
   credenziali:
     description: "Credenziali per il salvataggio Firebase"
     value: ${{ steps.credentials-reader.outputs.credentials-id }}
-# env:
-#   PASSWORDS: 'TESTO'
+env:
+  PASSWORDS: 'TESTO'
 runs:
   using: "composite"
   steps:
@@ -66,7 +66,7 @@ runs:
           echo ecco il valore $value
           JSON=credentials.txt
           cat $JSON
-          echo "FOO=${value}" >> $GITHUB_ENV
+          echo "FOO=$value" >> $GITHUB_ENV
         # echo "VALORE DELLE VARIABILI AMBIENTALI: $PASSWORDS !!!!!!!!!!!!!!"
         # echo ${{env.PASSWORDS}}
         #echo "GITHUB_CREDENZIALI=$value" >> $GITHUB_ENV
