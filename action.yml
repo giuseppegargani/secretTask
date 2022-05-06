@@ -53,6 +53,7 @@ runs:
 
       - name: Stampa credenziali da file!!
         run: cat credentials.txt
+        shell: bash
 
     # - name: legge il file con le password
     #   run: |

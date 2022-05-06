@@ -24,3 +24,4 @@ jobs:
         shell: bash
       - name: Stampa credenziali da Secret!!!
         run: echo ${{secrets.FIREBASE_CREDENTIALS}}
+        shell: bash
