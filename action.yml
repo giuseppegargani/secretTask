@@ -47,6 +47,9 @@ outputs:
   random-number:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-id }}
+  credenziali:
+    description: "Credenziali per il salvataggio Firebase"
+    value: ${{ steps.credentials-reader.outputs.credentials-id }}
 env:
   PASSWORDS: 'TESTO'
 runs:
@@ -69,8 +72,19 @@ runs:
         #echo "${GITHUB_CREDENZIALI}"
         shell: bash
 
+      - id: random-number-generator
+        run: echo "::set-output name=random-number::$(echo $RANDOM)"
+        shell: bash
+
+      - name: lettore delle credenziali
+        id: credentials-reader
+        run: echo "::set-output name=credenziali::giuseppe"
+        shell: bash
+
       - name: lettura variabili
-        run: echo  "ecco il valore ${{steps.lettura.outputs.value}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        run: |
+          echo  "ecco il valore ${{steps.lettura.outputs.value}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+          echo "ecco lettura RANDOM ${{ outputs.random-number }} e altro ${{ outputs.credenziali }} "
         shell: bash
 
     # - name: legge il file con le password
