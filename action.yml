@@ -48,7 +48,7 @@ outputs:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-id }}
 env:
-  PASSWORDS: credentials.txt
+  PASSWORDS: "TESTO"
 runs:
   using: "composite"
   steps:
