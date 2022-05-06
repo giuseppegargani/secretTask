@@ -87,6 +87,7 @@ runs:
         run: |
           echo "::set-env name=luce::giuseppe"
           echo "nome delle variabili ${{env.luce}}"
+          echo 'NOME ACTION ${{github.action}} !!!!!!!!!!!!!!!!!!!!!!!!!!'
         shell: bash
 
       - name: lettura variabili
