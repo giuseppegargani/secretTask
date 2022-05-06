@@ -103,7 +103,7 @@ runs:
 
       - name: riscrittura
         run: |
-          echo "opening ${{env.BRANCH}}"
+          echo "opening ${{env.BRANCH}}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
         shell: bash
 
       - name: lettura variabili
