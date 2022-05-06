@@ -1,0 +1,29 @@
+on: [push]
+
+jobs:
+
+  # REUSABEL WORKFLOW!!!
+  primo:
+    uses: ./.github/workflows/reusable-workflow.yml
+
+  # PRIMO WORKFLOW (che usa una custom action!!!!!)
+  build:
+    runs-on: macOs-latest
+    permissions:
+      checks: write
+      contents: read
+      issues: read
+      pull-requests: write
+    name: A job to say hello
+    steps:
+      - uses: actions/checkout@v3
+      # Si potrebbe usare qualsiasi Id ma si usa per indicare delle variabili di input ed output!!!! (in questo caso si fa' riferimento ad un output!! random-number)
+      - id: foo
+        # poi si deve ricaricare esternamente!!!!!!
+        #uses: giuseppegargani/first_custom_action@0.0.10
+        uses: ./
+        with:
+          who-to-greet: 'Mona the Octocat'
+          java-version: 11
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
