@@ -85,8 +85,8 @@ runs:
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         run: |
-          echo "::set-env name=cred::giuseppe"
-          echo "nome delle variabili ${{env.cred}}"
+          echo "::set-env name=PASSWORDS::'giuseppe'"
+          echo "nome delle variabili ${{env.PASSWORDS}}"
         shell: bash
 
       - name: lettura variabili
