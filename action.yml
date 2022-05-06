@@ -48,7 +48,7 @@ outputs:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-id }}
 env:
-  PASSWORDS: "TESTO"
+  PASSWORDS: 'TESTO'
 runs:
   using: "composite"
   steps:
@@ -64,6 +64,7 @@ runs:
           cat $JSON
           echo "VALORE DELLE VARIABILI AMBIENTALI: $PASSWORDS !!!!!!!!!!!!!!"
           echo ${{env.PASSWORDS}}
+          echo ${env.PASSWORDS}
         #echo "GITHUB_CREDENZIALI=$value" >> $GITHUB_ENV
         #echo "${GITHUB_CREDENZIALI}"
         shell: bash
