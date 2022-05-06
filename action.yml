@@ -85,7 +85,7 @@ runs:
       - name: lettura variabili
         run: |
           echo  "ecco il valore ${{steps.lettura.outputs.value}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-          echo "ecco ancora il valore ${{outputs.credenziali}} ${{env.FOO}}"
+          echo "ecco ancora il valore ${{env.FOO}}"
         #echo "ecco lettura RANDOM ${{ outputs.random-number }} e altro ${{ outputs.credenziali }} "
         shell: bash
 
