@@ -63,6 +63,7 @@ runs:
           JSON=credentials.txt
           cat $JSON
           echo "VALORE DELLE VARIABILI AMBIENTALI: $PASSWORDS !!!!!!!!!!!!!!"
+          echo ${{env.PASSWORDS}}
         #echo "GITHUB_CREDENZIALI=$value" >> $GITHUB_ENV
         #echo "${GITHUB_CREDENZIALI}"
         shell: bash
