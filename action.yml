@@ -52,7 +52,8 @@ runs:
   steps:
 
       - name: Stampa credenziali da file!!
-        run: cat credentials.txt
+        run: |
+          ls
         shell: bash
 
     # - name: legge il file con le password
