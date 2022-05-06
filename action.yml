@@ -112,6 +112,7 @@ runs:
 
       - name: riscrittura
         run: |
+          echo "---------- To rightly write "
           cat ${{env.FILE}}
         # echo "----------------------- OPENING ${{env.VALORE}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
           # echo "OPENING ${{env.VALORE}}"
