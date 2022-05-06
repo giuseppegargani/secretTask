@@ -99,6 +99,7 @@ runs:
           currentbranch="STARGATE"
           echo "running on $currentbranch"
           echo "BRANCH=$currentbranch" >> $GITHUB_ENV
+          value=`cat credentials.txt`
         #fbcred= `cat credentials.txt`
         #echo "assegning variable $fbcred"
         shell: bash
