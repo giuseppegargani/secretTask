@@ -2,6 +2,8 @@
 # AGGIORNARE LE VERSIONI DI TUTTE LE DIPENDENZE!!!!
 # RIVERIFICARE IL FUNZIONAMENTO E RIDURLE QUANDO POSSIBILE!!!!!!!
 # CONTINUE-ON-ERROR Si puo' mettere continue-on-error: true
+# HA ACCESSO HA CONTEXT!!!!!! per esempio al nome della azione:
+# github.action!!!!!  https://docs.github.com/en/actions/learn-github-actions/contexts#contexts
 
 #name: 'Barsali_Hello_World'
 #description: 'Greet someone and record the time'
@@ -51,6 +53,7 @@ outputs:
     description: "Credenziali per il salvataggio Firebase"
     value: ${{ steps.credentials-reader.outputs.credentials-id }}
 env:
+  mascot: Mona
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
   PASSWORDS: 'TESTO'
 runs:
@@ -88,6 +91,7 @@ runs:
           echo "::set-env name=luce::giuseppe"
           echo "nome delle variabili ${{env.luce}}"
           echo 'NOME ACTION ${{github.env.luce}} !!!!!!!!!!!!!!!!!!!!!!!!!!'
+          echo 'Hi ${{ env.mascot }}'
         shell: bash
 
       - name: lettura variabili
