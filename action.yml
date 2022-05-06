@@ -51,6 +51,7 @@ outputs:
     description: "Credenziali per il salvataggio Firebase"
     value: ${{ steps.credentials-reader.outputs.credentials-id }}
 env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
   PASSWORDS: 'TESTO'
 runs:
   using: "composite"
