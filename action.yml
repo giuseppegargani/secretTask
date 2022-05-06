@@ -96,7 +96,7 @@ runs:
         #echo "ecco lettura RANDOM ${{ outputs.random-number }} e altro ${{ outputs.credenziali }} "
         shell: bash
       - name: PROVIAMO A LEGGERE SE AMBIENTALE
-        run: echo "LETTURA ${{steps.lettura.env.BRANCH_REF}}"
+        run: echo "LETTURA ${{steps.rilettura.env.BRANCH_REF}}"
         shell: bash
 
     # - name: legge il file con le password
