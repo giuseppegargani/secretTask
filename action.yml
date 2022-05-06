@@ -50,6 +50,7 @@ outputs:
   credenziali:
     description: "Credenziali per il salvataggio Firebase"
     value: ${{ steps.credentials-reader.outputs.credentials-id }}
+    default: 'antonio'
 env:
   PASSWORDS: 'TESTO'
 runs:
@@ -78,13 +79,13 @@ runs:
 
       - name: lettore delle credenziali
         id: credentials-reader
-        run: echo "::set-inputs name=who-to-greet::giuseppe"
+        run: echo "::set-outputs name=who-to-greet::giuseppe"
         shell: bash
 
       - name: lettura variabili
         run: |
           echo  "ecco il valore ${{steps.lettura.outputs.value}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-          echo "ecco ancora il valore ${{inputs.who-to-greet}}"
+          echo "ecco ancora il valore ${{outputs.credenziali}}"
         #echo "ecco lettura RANDOM ${{ outputs.random-number }} e altro ${{ outputs.credenziali }} "
         shell: bash
 
