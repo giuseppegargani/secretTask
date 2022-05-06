@@ -81,7 +81,9 @@ runs:
 
       - name: lettore delle credenziali
         id: credentials-reader
-        run: echo "::set-outputs name=who-to-greet::giuseppe"
+        run: |
+          echo "::set-env name=cred::giuseppe"
+          echo "nome delle variabili ${{env.cred}}"
         shell: bash
 
       - name: lettura variabili
