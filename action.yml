@@ -1,4 +1,4 @@
-# action.yml 
+# action.yml
 # AGGIORNARE LE VERSIONI DI TUTTE LE DIPENDENZE!!!!
 # RIVERIFICARE IL FUNZIONAMENTO E RIDURLE QUANDO POSSIBILE!!!!!!!
 # CONTINUE-ON-ERROR Si puo' mettere continue-on-error: true
@@ -51,27 +51,28 @@ runs:
   using: "composite"
   steps:
 
-    - name: legge il file con le password
-      run: |
-        ls
-        echo 'eccomi'
-        JSON=$(cat ./credentials.txt)
-        echo $JSON
-        echo GITHUB_CREDENTIALS=$(cat ./credentials.txt) >> $GITHUB_ENV
-      #JSON=$(cat ./credential.txt)
-      #echo (cat credentials.txt )
-      shell: bash
+      - name: Stampa credenziali da file!!
+        run: cat credentials.txt
 
-    - name: Scrive il file nel Db
-      uses: w9jds/firebase-trigger@master
-      #env:
-      #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
-      #NOME_REPOSITORY:
-      with:
-        credentials: ${{env.CREDENTIALS}}
-        databaseUrl: https://databasericette-beeb7.firebaseio.com
-        path: "${{ github.repository }}"
-        #Si devono mettere come segreto!!!
-        value: "${{ github.repository }}"
-
-    
+    # - name: legge il file con le password
+    #   run: |
+    #     ls
+    #     echo 'eccomi'
+    #     JSON=$(cat ./credentials.txt)
+    #     echo $JSON
+    #     echo GITHUB_CREDENTIALS=$(cat ./credentials.txt) >> $GITHUB_ENV
+    #   #JSON=$(cat ./credential.txt)
+    #   #echo (cat credentials.txt )
+    #   shell: bash
+    #
+    # - name: Scrive il file nel Db
+    #   uses: w9jds/firebase-trigger@master
+    #   #env:
+    #   #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
+    #   #NOME_REPOSITORY:
+    #   with:
+    #     credentials: ${{env.CREDENTIALS}}
+    #     databaseUrl: https://databasericette-beeb7.firebaseio.com
+    #     path: "${{ github.repository }}"
+    #     #Si devono mettere come segreto!!!
+    #     value: "${{ github.repository }}"
