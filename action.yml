@@ -85,7 +85,7 @@ runs:
         shell: bash
 
       - name: lettura variabili
-        id: lettura
+        id: rilettura
         env:
           BRANCH_REF: "michele"
           # BRANCH_REF: "${{ github.ref }}"
