@@ -51,7 +51,8 @@ jobs:
 
       - name: stampa echo
         run: |
+          ls
           echo ./giuseppe.env
-          giuseppe = cat giuseppe.env
+          giuseppe = $(cat ./giuseppe.env)
           echo "ecco il file $giuseppe"
         shell: bash
