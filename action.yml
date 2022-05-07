@@ -144,10 +144,15 @@ runs:
     #   #echo (cat credentials.txt )
     #   shell: bash
     #
-
-      - name: Operazioni Firebase DB
-        uses: w9jds/firebase-action@master
+      - name: Create .env file
+        uses: ozaytsev86/create-env-file@v1
         with:
-          args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime PEPPE
-        env:
-          GCP_SA_KEY: "${{ env.FILE }}"
+          ENV_TEST_API_KEY: ${{ secrets.FIREBASE_CREDENTIALS }}
+
+
+      # - name: Operazioni Firebase DB
+      #   uses: w9jds/firebase-action@master
+      #   with:
+      #     args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime PEPPE
+      #   env:
+      #     GCP_SA_KEY: "${{ env.FILE }}"
