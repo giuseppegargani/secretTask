@@ -144,10 +144,10 @@ runs:
     #   #echo (cat credentials.txt )
     #   shell: bash
     #
-      - name: Create .env file
-        uses: ozaytsev86/create-env-file@v1
-        with:
-          ENV_TEST_API_KEY: ${{ secrets.FIREBASE_CREDENTIALS }}
+      # - name: Create .env file
+      #   uses: ozaytsev86/create-env-file@v1
+      #   with:
+      #     ENV_TEST_API_KEY: ${{ secrets.FIREBASE_CREDENTIALS }}
 
 
       # - name: Operazioni Firebase DB
