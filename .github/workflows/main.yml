@@ -27,3 +27,18 @@ jobs:
       # - name: Save in a file a secret
       #   run: echo ${{secrets.FIREBASE_CREDENTIALS }} | base64 --decode > ./gcloud.json
       #   shell: bash
+      - name: Run Workflow
+        id: write_file
+        uses: timheuer/base64-to-file@v1.1
+        with:
+          fileName: 'tempCred.txt'
+          fileDir: './'
+          encodedString: ${{ secrets.FIREBASE_CREDENTIALS }}
+      
+
+      - name: Operazioni Firebase DB
+        uses: w9jds/firebase-action@master
+        with:
+          args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime PEPPE
+        env:
+          GCP_SA_KEY: ${{ steps.write_file.outputs.filePath }}
