@@ -36,12 +36,12 @@ jobs:
           encodedString: ${{ secrets.FIREBASE_CREDENTIALS }}
 
 
-      - name: Operazioni Firebase DB
-        uses: w9jds/firebase-action@master
-        with:
-          args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime PEPPE
-        env:
-          GCP_SA_KEY: ${{ steps.write_file.outputs.filePath }}
+      # - name: Operazioni Firebase DB
+      #   uses: w9jds/firebase-action@master
+      #   with:
+      #     args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime PEPPE
+      #   env:
+      #     GCP_SA_KEY: ${{ steps.write_file.outputs.filePath }}
 
       - name: Create .env file
         uses: ozaytsev86/create-env-file@v1
