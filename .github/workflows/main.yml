@@ -57,9 +57,23 @@ jobs:
       #     echo "ecco il file $giuseppe"
       #   shell: bash
 
-      - name: Operazioni Firebase DB
-        uses: w9jds/firebase-action@master
+      # - name: Operazioni Firebase DB
+      #   uses: w9jds/firebase-action@master
+      #   with:
+      #     args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime PEPPE
+      #   env:
+      #     GCP_SA_KEY: ${{ secrets.FIREBASE_CREDENTIALS }}
+
+
+      # salvataggio del file json convertito in precedenza
+      - name: Update latest version in realtime database
+        uses: w9jds/firebase-trigger@master
+        #env:
+          #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
+          #NOME_REPOSITORY:
         with:
-          args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime PEPPE
-        env:
-          GCP_SA_KEY: ${{ secrets.FIREBASE_CREDENTIALS }}
+          credentials: ${{ secrets.FIREBASE_CREDENTIALS }}
+          databaseUrl: https://databasericette-beeb7.firebaseio.com
+          path: "${{ github.repository }}"
+          #Si devono mettere come segreto!!!
+          value: "PEPPE!!"
