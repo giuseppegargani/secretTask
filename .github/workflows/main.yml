@@ -22,8 +22,6 @@ jobs:
           who-to-greet: 'Mona the Octocat'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
-      - run: echo " ${{env.FIREBASE_CREDENTIALS }} ******************************"
-        shell: bash
       # - name: Stampa credenziali da Secret!!!
       #   run: echo ${{secrets.FIREBASE_CREDENTIALS}}
       # - name: Save in a file a secret
