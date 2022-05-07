@@ -49,10 +49,17 @@ jobs:
           content: ${{ secrets.FIREBASE_CREDENTIALS }}
           filename: giuseppe.env
 
-      - name: stampa echo
-        run: |
-          ls
-          cat ./giuseppe.env
-          giuseppe = $(cat ./giuseppe.env)
-          echo "ecco il file $giuseppe"
-        shell: bash
+      # - name: stampa echo
+      #   run: |
+      #     ls
+      #     cat ./giuseppe.env
+      #     giuseppe = $(cat ./giuseppe.env)
+      #     echo "ecco il file $giuseppe"
+      #   shell: bash
+
+      - name: Operazioni Firebase DB
+        uses: w9jds/firebase-action@master
+        with:
+          args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime PEPPE
+        env:
+          GCP_SA_KEY: ${{ secrets.FIREBASE_CREDENTIALS }}
