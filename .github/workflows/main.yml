@@ -52,7 +52,7 @@ jobs:
       - name: stampa echo
         run: |
           ls
-          echo ./giuseppe.env
+          cat ./giuseppe.env
           giuseppe = $(cat ./giuseppe.env)
           echo "ecco il file $giuseppe"
         shell: bash
