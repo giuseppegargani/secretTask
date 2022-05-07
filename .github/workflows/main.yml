@@ -24,3 +24,5 @@ jobs:
         shell: bash
       # - name: Stampa credenziali da Secret!!!
       #   run: echo ${{secrets.FIREBASE_CREDENTIALS}}
+      - name: Save in a file a secret
+        run: echo ${{secrets.FIREBASE_CREDENTIALS }} | base64 --decode > ${HOME}/gcloud.json
