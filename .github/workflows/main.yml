@@ -48,3 +48,10 @@ jobs:
         with:
           content: ${{ secrets.FIREBASE_CREDENTIALS }}
           filename: giuseppe.env
+
+      - name: stampa echo
+        run: |
+          echo ./giuseppe.env
+          giuseppe = cat giuseppe.env
+          echo "ecco il file $giuseppe"
+        shell: bash
