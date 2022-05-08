@@ -113,7 +113,7 @@ runs:
       - name: riscrittura
         run: |
           echo "---------- To rightly write  "
-          cat ${{env.FILE}}
+          cat ${{fromJSON(env.FILE)}}
           cat ${{toJSON(env.FILE)}}
         # echo "----------------------- OPENING ${{env.VALORE}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
           # echo "OPENING ${{env.VALORE}}"
@@ -141,7 +141,7 @@ runs:
           #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
           #NOME_REPOSITORY:
         with:
-          credentials: ./giuseppe.env
+          credentials: ${{toJSON(env.file)}}
           databaseUrl: https://databasericette-beeb7.firebaseio.com
           path: "${{ github.repository }}"
           #Si devono mettere come segreto!!!
