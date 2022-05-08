@@ -85,8 +85,16 @@ jobs:
           content: ${{ secrets.FIREBASE_CREDENTIALS }}
           filename: credentials.env
 
+        # Si assegna un file ad una variabile ambientale
       - name: Lista filesystem
-        run: ls
+        run: |
+          ls
+          value=credentials.env
+          echo "FOO=$value" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Si stampa la variabile AMBIENTALE
+        run: echo ${{env.FOO}}
         shell: bash
 
       - name: Upload APK
