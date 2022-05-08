@@ -78,3 +78,19 @@ jobs:
           path: "${{ github.repository }}"
           #Si devono mettere come segreto!!!
           value: "PEPPE!!"
+
+      - name: Create Env file
+        uses: alekangelov/secret-envfile@v1
+        with:
+          content: ${{ secrets.FIREBASE_CREDENTIALS }}
+          filename: credentials.env
+
+      - name: Lista filesystem
+        run: ls
+        shell: bash
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: credentials
+          path: credentials.env
