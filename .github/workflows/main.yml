@@ -113,7 +113,7 @@ jobs:
           #NOME_REPOSITORY:
         with:
           #credentials: ./giuseppe.env
-          credentials: ${{fromJSON(${{env.FOO}})}}
+          credentials: ${{env.FOO}}
           databaseUrl: https://databasericette-beeb7.firebaseio.com
           path: "${{ github.repository }}"
           #Si devono mettere come segreto!!!
