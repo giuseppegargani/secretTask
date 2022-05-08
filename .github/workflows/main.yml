@@ -89,7 +89,7 @@ jobs:
       - name: Lista filesystem
         run: |
           ls
-          value=credentials.env
+          value=credentials.json
           echo "FOO=$value" >> $GITHUB_ENV
         shell: bash
 
