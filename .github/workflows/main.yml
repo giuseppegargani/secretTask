@@ -93,11 +93,11 @@ jobs:
           echo "FOO=fromJSON($value)" >> $GITHUB_ENV
         shell: bash
 
-      - name: Si stampa la variabile AMBIENTALE
-        run: |
-          echo ${{env.FOO}}
-          cat ${{env.FOO}}
-        shell: bash
+      # - name: Si stampa la variabile AMBIENTALE
+      #   run: |
+      #     echo ${{env.FOO}}
+      #     cat ${{env.FOO}}
+      #   shell: bash
 
       - name: Upload APK
         uses: actions/upload-artifact@v2.2.4
