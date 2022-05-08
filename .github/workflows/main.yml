@@ -94,7 +94,9 @@ jobs:
         shell: bash
 
       - name: Si stampa la variabile AMBIENTALE
-        run: echo ${{env.FOO}}
+        run: !
+          echo ${{env.FOO}}
+          cat ${{env.FOO}}
         shell: bash
 
       - name: Upload APK
