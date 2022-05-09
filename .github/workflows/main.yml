@@ -105,6 +105,8 @@ jobs:
           value=credentials.json
           echo "FOO=$value" >> $GITHUB_ENV
           echo "::set-output name=libro::$value"
+          JSON=$(cat ./credentials.json)
+          echo "::set-output name=matrix::${JSON//'%'/'%25'}"
         shell: bash
 
       # - name: Si stampa la variabile AMBIENTALE
@@ -142,7 +144,7 @@ jobs:
           args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime Example.json
         env:
           #GCP_SA_KEY: ${{ toJson(steps.outputs.set_var.book) }}
-          GCP_SA_KEY: ${{ toJson(steps.outputs.passo.libro).key }}
+          GCP_SA_KEY: ${{fromJson(steps.outputs.passo.matrix)}}
 
       #salvataggio del file json convertito in precedenza
       # - name: Update latest version in realtime database
