@@ -86,7 +86,7 @@ runs:
           antonio = credentials.json
           testo = toJSON($antonio)
           echo $testo
-          cat ${{fromJson(credentials)}}
+        #cat ${{fromJson(credentials)}}
         shell: bash
 
       - id: random-number-generator
