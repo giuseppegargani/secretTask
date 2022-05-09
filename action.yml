@@ -90,6 +90,16 @@ runs:
       #   #cat ${{fromJson(credentials)}}
       #   shell: bash
 
+      - id: set_var
+        run: |
+          content=`cat ./credentials.json`
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          echo "::set-output name=packageJson::$content"
+      - run: |
+          echo "${{fromJson(steps.set_var.outputs.packageJson).version}}"
+
       - id: random-number-generator
         run: echo "::set-output name=random-number::$(echo $RANDOM)"
         shell: bash
