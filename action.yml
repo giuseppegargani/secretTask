@@ -103,6 +103,7 @@ runs:
       - name: DEBUG CAMPI SINGOLI JSON
         run: |
           echo "${{steps.set_var.outputs.converted.type }} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+          echo "${{fromJson(steps.set_var.outputs.packageJson).type }} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
         shell: bash
 
       - id: random-number-generator
