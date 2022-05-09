@@ -83,6 +83,7 @@ runs:
       - name: Stampa il files
         run: |
           cat ./credentials0.txt
+        shell: bash
 
       - id: random-number-generator
         run: echo "::set-output name=random-number::$(echo $RANDOM)"
