@@ -84,7 +84,7 @@ runs:
         run: |
           cat ./credentials0.txt
           antonio = credentials.json
-          testo = toJSON(antonio)
+          testo = toJSON(${antonio})
           echo $testo
         #cat ${{fromJson(credentials)}}
         shell: bash
