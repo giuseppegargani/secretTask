@@ -101,7 +101,7 @@ jobs:
           cat ./credentials.json
           fileGiuse = ./credentials.json
           giuse = fromJson($fileGiuse)
-          echo "${{$giuse.type}}"
+          echo "$giuse.type"
           echo "VALORE APPENA SCRITTO"
         #JSON = $(cat ./credentials.json)
         shell: bash
