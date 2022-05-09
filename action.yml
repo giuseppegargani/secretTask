@@ -169,7 +169,8 @@ runs:
           #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
           #NOME_REPOSITORY:
         with:
-          credentials: fromJson($VALORE)
+          #credentials: fromJson($VALORE)
+          credentials: ${{./credentials.json}}
           databaseUrl: https://databasericette-beeb7.firebaseio.com
           path: "${{ github.repository }}"
           #Si devono mettere come segreto!!!
