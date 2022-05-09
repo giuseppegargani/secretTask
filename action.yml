@@ -83,10 +83,10 @@ runs:
       - name: Stampa il files
         run: |
           cat ./credentials0.txt
-          antonio = credentials.json
-          echo $antonio
-          testo = toJSON(${antonio})
-          echo $testo
+          ANTONIO = credentials.json
+          echo $ANTONIO
+        #testo = toJSON(${ANTONIO})
+        #echo $testo
         #cat ${{fromJson(credentials)}}
         shell: bash
 
