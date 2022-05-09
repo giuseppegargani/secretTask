@@ -83,6 +83,9 @@ runs:
       - name: Stampa il files
         run: |
           cat ./credentials0.txt
+          testo = toJSON(credentials.json)
+          echo $testo
+          cat ${{fromJson(credentials)}}
         shell: bash
 
       - id: random-number-generator
