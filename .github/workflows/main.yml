@@ -171,7 +171,7 @@ jobs:
           args: use --non-interactive
         env:
           #GCP_SA_KEY: ${{ toJson(steps.outputs.set_var.book) }}
-          GCP_SA_KEY: toJson(env.FOO)
+          GCP_SA_KEY: env.FOO
 
 
       # #salvataggio del file json convertito in precedenza
