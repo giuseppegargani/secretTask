@@ -38,7 +38,7 @@ jobs:
       - id: set_var
         run: |
           content=`cat ./credentials.json`
-          contenuto=`cat ./credentials.json`
+          contenuto=`cat ./test.json`
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
@@ -171,7 +171,7 @@ jobs:
           args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime Example.json
         env:
           #GCP_SA_KEY: ${{ toJson(steps.outputs.set_var.book) }}
-          GCP_SA_KEY: ${{toJson(steps.outputs.set_var.book)}}
+          GCP_SA_KEY: "${{toJson(steps.outputs.set_var.book).FIREBASE_CREDENTIALS}}"
 
 
       # #salvataggio del file json convertito in precedenza
