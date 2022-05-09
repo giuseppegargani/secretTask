@@ -124,19 +124,19 @@ jobs:
         run: |
           echo FILE=credentials.json >> $GITHUB_ENV
 
-      - name: Login Firebase Db
-        uses: w9jds/firebase-action@master
-        with:
-          args: login:ci
-        env:
-          GCP_SA_KEY: "${{ toJSON(steps.outputs.set_var.packageJson) }}"
+      # - name: Login Firebase Db
+      #   uses: w9jds/firebase-action@master
+      #   with:
+      #     args: login:ci
+      #   env:
+      #     GCP_SA_KEY: "${{ toJSON(steps.outputs.set_var.packageJson) }}"
 
       - name: Operazioni Firebase DB
         uses: w9jds/firebase-action@master
         with:
           args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime Example.json
         env:
-          GCP_SA_KEY: "${{ toJSON(steps.outputs.set_var.packageJson) }}"
+          GCP_SA_KEY: ${{ toJSON(steps.outputs.set_var.packageJson) }}
 
       #salvataggio del file json convertito in precedenza
       # - name: Update latest version in realtime database
