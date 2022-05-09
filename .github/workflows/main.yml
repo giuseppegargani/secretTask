@@ -97,6 +97,7 @@ jobs:
         run: |
           echo ${{env.FOO}}
           cat ${{env.FOO}}
+          cat credentials.txt
           cat credentials.env
           cat ./credentials.json
           fileGiuse = ./credentials.json
