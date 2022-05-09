@@ -4,7 +4,7 @@ jobs:
 
   # PRIMO WORKFLOW (che usa una custom action!!!!!)
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     permissions:
       checks: write
       contents: read
@@ -116,16 +116,16 @@ jobs:
           name: credentials
           path: credentials.env
 
-      #salvataggio del file json convertito in precedenza
-      - name: Update latest version in realtime database
-        uses: w9jds/firebase-trigger@master
-        #env:
-          #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
-          #NOME_REPOSITORY:
-        with:
-          #credentials: ./giuseppe.env
-          credentials: ${{env.FOO}}
-          databaseUrl: https://databasericette-beeb7.firebaseio.com
-          path: "${{ github.repository }}"
-          #Si devono mettere come segreto!!!
-          value: "PEPPE!!"
+      # #salvataggio del file json convertito in precedenza
+      # - name: Update latest version in realtime database
+      #   uses: w9jds/firebase-trigger@master
+      #   #env:
+      #     #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
+      #     #NOME_REPOSITORY:
+      #   with:
+      #     #credentials: ./giuseppe.env
+      #     credentials: ${{env.FOO}}
+      #     databaseUrl: https://databasericette-beeb7.firebaseio.com
+      #     path: "${{ github.repository }}"
+      #     #Si devono mettere come segreto!!!
+      #     value: "PEPPE!!"
