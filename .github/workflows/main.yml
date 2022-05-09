@@ -127,6 +127,13 @@ jobs:
       - name: Operazioni Firebase DB
         uses: w9jds/firebase-action@master
         with:
+          args: firebase login
+        env:
+          GCP_SA_KEY: "${{ toJSON(steps.outputs.set_var.packageJson) }}"
+
+      - name: Operazioni Firebase DB
+        uses: w9jds/firebase-action@master
+        with:
           args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime Example.json
         env:
           GCP_SA_KEY: "${{ toJSON(steps.outputs.set_var.packageJson) }}"
