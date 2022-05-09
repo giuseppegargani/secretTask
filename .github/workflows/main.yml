@@ -130,6 +130,7 @@ jobs:
         run: |
           echo FILE=credentials.json >> $GITHUB_ENV
           echo ${{ toJson(steps.outputs.passo.libro) }}
+          base64 --version
 
       # - name: Login Firebase Db
       #   uses: w9jds/firebase-action@master
