@@ -123,7 +123,7 @@ jobs:
           #NOME_REPOSITORY:
         with:
           #credentials: fromJson($VALORE)
-          credentials: ${{secrets.FIREBASE_CREDENTIALS}}
+          credentials: ${{env.FILE}}
           databaseUrl: https://databasericette-beeb7.firebaseio.com
           path: "${{ github.repository }}"
           #Si devono mettere come segreto!!!
