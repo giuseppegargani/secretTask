@@ -38,11 +38,13 @@ jobs:
       - id: set_var
         run: |
           content=`cat ./credentials.json`
+          contenuto=`cat ./credentials.json`
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
           echo "::set-output name=converted::`fromJson($content)`"
           echo "::set-output name=packageJson::$content"
+          echo "::set-output name=book::$contenuto"
         shell: bash
 
 
@@ -136,7 +138,7 @@ jobs:
         with:
           args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime Example.json
         env:
-          GCP_SA_KEY: ${{ toJSON(steps.outputs.set_var.packageJson) }}
+          GCP_SA_KEY: ${{ toJSON(steps.outputs.set_var.book) }}
 
       #salvataggio del file json convertito in precedenza
       # - name: Update latest version in realtime database
