@@ -99,6 +99,7 @@ jobs:
           cat ${{env.FOO}}
           cat credentials.env
           cat ./credentials.json
+          echo "${{fromJson(credentials.env).type}}"
         #JSON = $(cat ./credentials.json)
         shell: bash
 
