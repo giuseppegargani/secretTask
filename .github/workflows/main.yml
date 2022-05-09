@@ -168,7 +168,7 @@ jobs:
       - name: Operazioni Firebase DB
         uses: w9jds/firebase-action@master
         with:
-          args: projects:list
+          args: use --non-interactive
         env:
           #GCP_SA_KEY: ${{ toJson(steps.outputs.set_var.book) }}
           GCP_SA_KEY: "${{toJson(env.FOO)}}"
