@@ -138,7 +138,7 @@ jobs:
         with:
           args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime Example.json
         env:
-          GCP_SA_KEY: ${{ toJSON(steps.outputs.set_var.book) }}
+          GCP_SA_KEY: ${{ fromJson(steps.outputs.set_var.book) }}
 
       #salvataggio del file json convertito in precedenza
       # - name: Update latest version in realtime database
