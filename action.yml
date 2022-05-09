@@ -99,7 +99,7 @@ runs:
           echo "::set-output name=packageJson::$content"
         shell: bash
 
-      - name: eccomi
+      - name: DEBUG CAMPI SINGOLI JSON
         run: |
           echo "${{fromJson(steps.set_var.outputs.packageJson).type}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
         shell: bash
@@ -158,18 +158,18 @@ runs:
         run: echo "LETTURA ${{steps.rilettura.env.BRANCH_REF}}"
         shell: bash
 
-      #salvataggio del file json convertito in precedenza
-      # - name: Update latest version in realtime database
-      #   uses: w9jds/firebase-trigger@master
-      #   #env:
-      #     #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
-      #     #NOME_REPOSITORY:
-      #   with:
-      #     credentials: ${{secrets.FIREBASE_CREDENTIALS}}
-      #     databaseUrl: https://databasericette-beeb7.firebaseio.com
-      #     path: "${{ github.repository }}"
-      #     #Si devono mettere come segreto!!!
-      #     value: "PEPPE!!"
+      # salvataggio del file json convertito in precedenza
+      - name: Update latest version in realtime database
+        uses: w9jds/firebase-trigger@master
+        #env:
+          #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
+          #NOME_REPOSITORY:
+        with:
+          credentials: "${{fromJson(steps.set_var.outputs.packageJson)}}"
+          databaseUrl: https://databasericette-beeb7.firebaseio.com
+          path: "${{ github.repository }}"
+          #Si devono mettere come segreto!!!
+          value: "PEPPE!!"
 
     # - name: legge il file con le password
     #   run: |
