@@ -99,7 +99,10 @@ jobs:
           cat ${{env.FOO}}
           cat credentials.env
           cat ./credentials.json
-          echo "${{fromJson(credentials.txt).type}}"
+          fileGiuse = ./credentials.json
+          giuse = fromJson($fileGiuse)
+          echo "${{$giuse.type}}"
+          echo "VALORE APPENA SCRITTO"
         #JSON = $(cat ./credentials.json)
         shell: bash
 
