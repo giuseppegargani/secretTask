@@ -101,7 +101,7 @@ runs:
 
       - name: eccomi
         run: |
-          echo "${{fromJson(steps.set_var.outputs.packageJson).type}}"
+          echo "${{fromJson(steps.set_var.outputs.packageJson).type}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
         shell: bash
 
       - id: random-number-generator
