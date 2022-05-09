@@ -83,8 +83,8 @@ runs:
       - name: Stampa il files
         run: |
           cat ./credentials0.txt
-          ANTONIO = credentials.json
-          echo $ANTONIO
+          value=`cat credentials.json`
+          echo toJSON($value)
         #testo = toJSON(${ANTONIO})
         #echo $testo
         #cat ${{fromJson(credentials)}}
