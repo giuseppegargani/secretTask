@@ -96,13 +96,13 @@ runs:
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
-          echo "::set-output name=tentativo::fromJson($content)"
+          echo "::set-output name=converted::fromJson($content)"
           echo "::set-output name=packageJson::$content"
         shell: bash
 
       - name: DEBUG CAMPI SINGOLI JSON
         run: |
-          echo "${{fromJson(steps.set_var.outputs.packageJson).type}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+          echo "${{converted.type}} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
         shell: bash
 
       - id: random-number-generator
