@@ -127,7 +127,7 @@ jobs:
       - name: Login Firebase Db
         uses: w9jds/firebase-action@master
         with:
-          args: login
+          args: login:ci
         env:
           GCP_SA_KEY: "${{ toJSON(steps.outputs.set_var.packageJson) }}"
 
