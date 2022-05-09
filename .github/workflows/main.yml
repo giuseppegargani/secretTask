@@ -119,7 +119,7 @@ jobs:
         with:
           args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime Example.json
         env:
-          GCP_SA_KEY: "${{ secrets.FIREBASE_CREDENTIALS }}"
+          GCP_SA_KEY: "${{ env.FOO }}"
 
       #salvataggio del file json convertito in precedenza
       # - name: Update latest version in realtime database
