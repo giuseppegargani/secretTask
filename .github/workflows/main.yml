@@ -114,20 +114,27 @@ jobs:
         run: |
           echo FILE=credentials.json >> $GITHUB_ENV
 
-      #salvataggio del file json convertito in precedenza
-      - name: Update latest version in realtime database
-        uses: w9jds/firebase-trigger@master
-        # env:
-        #   VALORE: ${{toJson(steps.set_var.outputs.packageJson)}}
-          #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
-          #NOME_REPOSITORY:
+      - name: Operazioni Firebase DB
+        uses: w9jds/firebase-action@master
         with:
-          #credentials: fromJson($VALORE)
-          credentials: "${{env.FILE}}"
-          databaseUrl: https://databasericette-beeb7.firebaseio.com
-          path: "${{ github.repository }}"
-          #Si devono mettere come segreto!!!
-          value: "PEPPE!!"
+          args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime Eccomi
+        env:
+          GCP_SA_KEY: "${{ secrets.FIREBASE_CREDENTIALS }}"
+
+      #salvataggio del file json convertito in precedenza
+      # - name: Update latest version in realtime database
+      #   uses: w9jds/firebase-trigger@master
+      #   # env:
+      #   #   VALORE: ${{toJson(steps.set_var.outputs.packageJson)}}
+      #     #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
+      #     #NOME_REPOSITORY:
+      #   with:
+      #     #credentials: fromJson($VALORE)
+      #     credentials: "${{env.FILE}}"
+      #     databaseUrl: https://databasericette-beeb7.firebaseio.com
+      #     path: "${{ github.repository }}"
+      #     #Si devono mettere come segreto!!!
+      #     value: "PEPPE!!"
 
       # - name: Upload APK
       #   uses: actions/upload-artifact@v2.2.4
