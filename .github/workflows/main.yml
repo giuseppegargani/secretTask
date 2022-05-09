@@ -97,7 +97,7 @@ jobs:
         run: |
           echo ${{env.FOO}}
           cat ${{env.FOO}}
-          cat credentials0.txt
+          cat "${./credentials0.txt}"
           file1= credentials0.txt
           cat $file1
           cat credentials.env
