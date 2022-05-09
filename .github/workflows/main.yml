@@ -4,7 +4,7 @@ jobs:
 
   # PRIMO WORKFLOW (che usa una custom action!!!!!)
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     permissions:
       checks: write
       contents: read

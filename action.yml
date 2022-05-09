@@ -80,15 +80,15 @@ runs:
       #   #echo "${GITHUB_CREDENZIALI}"
       #   shell: bash
 
-      - name: Stampa il files
-        run: |
-          cat ./credentials0.txt
-          value=`cat credentials.json`
-          echo toJSON($value)
-        #testo = toJSON(${ANTONIO})
-        #echo $testo
-        #cat ${{fromJson(credentials)}}
-        shell: bash
+      # - name: Stampa il files
+      #   run: |
+      #     cat ./credentials0.txt
+      #     value=`cat credentials.json`
+      #     echo toJSON($value)
+      #   #testo = toJSON(${ANTONIO})
+      #   #echo $testo
+      #   #cat ${{fromJson(credentials)}}
+      #   shell: bash
 
       - id: random-number-generator
         run: echo "::set-output name=random-number::$(echo $RANDOM)"
