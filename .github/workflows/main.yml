@@ -98,7 +98,8 @@ jobs:
           echo ${{env.FOO}}
           cat ${{env.FOO}}
           cat credentials.env
-          JSON = $(cat ./credentials.json)
+          cat ./credentials.json
+        #JSON = $(cat ./credentials.json)
         shell: bash
 
       - name: Upload APK
