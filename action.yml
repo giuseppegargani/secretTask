@@ -92,12 +92,14 @@ runs:
 
       - id: set_var
         run: |
+          riferimento = ./credentials.json
           content=`cat ./credentials.json`
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
           echo "::set-output name=converted::`fromJson($content)`"
           echo "::set-output name=packageJson::$content"
+          echo "::set-output name=refFile::$riferimento"
         shell: bash
 
       - name: DEBUG CAMPI SINGOLI JSON
@@ -149,6 +151,7 @@ runs:
         id: rilettura
         env:
           BRANCH_REF: $(cat ./credentials.json)
+          REF_PROVA: ./credentials.json
           # BRANCH_REF: "${{ github.ref }}"
         run: echo "The branch is $BRANCH_REF"
         # run: |
@@ -163,14 +166,13 @@ runs:
       #salvataggio del file json convertito in precedenza
       - name: Update latest version in realtime database
         uses: w9jds/firebase-trigger@master
-        run: echo "beppe"
         env:
           VALORE: ${{toJson(steps.set_var.outputs.packageJson)}}
           #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
           #NOME_REPOSITORY:
         with:
           #credentials: fromJson($VALORE)
-          credentials: ${{./credentials.json}}
+          credentials: ${{(steps.rilettura.output.refFile)}}
           databaseUrl: https://databasericette-beeb7.firebaseio.com
           path: "${{ github.repository }}"
           #Si devono mettere come segreto!!!
