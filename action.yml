@@ -163,6 +163,7 @@ runs:
       #salvataggio del file json convertito in precedenza
       - name: Update latest version in realtime database
         uses: w9jds/firebase-trigger@master
+        run: echo "beppe"
         env:
           VALORE: ${{toJson(steps.set_var.outputs.packageJson)}}
           #GITHUB_CONTEXT: ${{ toJSON(github.repository) }}
