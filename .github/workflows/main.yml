@@ -129,7 +129,7 @@ jobs:
       - name: Set branch name as env variable
         run: |
           echo FILE=credentials.json >> $GITHUB_ENV
-          echo ${{ toJson(steps.outputs.passo.libro).key }}
+          echo ${{ toJson(steps.outputs.passo.libro) }}
 
       # - name: Login Firebase Db
       #   uses: w9jds/firebase-action@master
@@ -153,11 +153,11 @@ jobs:
       #     #Si devono mettere come segreto!!!
       #     value: "PEPPE!!"
 
-      # - uses: jwsi/secret-parser@v1
-      #   with:
-      #     filename: test.json
-      #     secret-name: FIREBASE_CREDENTIALS
-      #     secret-value: ${{ secrets.FIREBASE_CREDENTIALS }}
+      - uses: jwsi/secret-parser@v1
+        with:
+          filename: test.json
+          secret-name: FIREBASE_CREDENTIALS
+          secret-value: ${{ secrets.FIREBASE_CREDENTIALS }}
 
       - name: Upload APK
         uses: actions/upload-artifact@v2.2.4
@@ -171,7 +171,7 @@ jobs:
           args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime Example.json
         env:
           #GCP_SA_KEY: ${{ toJson(steps.outputs.set_var.book) }}
-          GCP_SA_KEY: "${{toJson(steps.outputs.set_var.book).FIREBASE_CREDENTIALS}}"
+          GCP_SA_KEY: ${{secrets.FIREBASE_CREDENTIALS}}
 
 
       # #salvataggio del file json convertito in precedenza
