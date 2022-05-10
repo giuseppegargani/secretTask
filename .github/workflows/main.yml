@@ -133,8 +133,7 @@ jobs:
           base64 --version
           cat ./credentials.json
           cat credentials.json | tr '\n' ' '
-          giuse= fromJson(steps.outputs.passo.FOO)
-          echo $giuse
+          echo ${{fromJson(steps.outputs.passo.FOO)}}
         # fileGiuse = ./credentials.json
         # giuse = ${{fromJson(credentials.json)}}
         # cat $giuse
