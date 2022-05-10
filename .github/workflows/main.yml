@@ -187,7 +187,7 @@ jobs:
         with:
           args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/eccomi Example.json
         env:
-          FIREBASE_TOKEN: credentials.txt
+          FIREBASE_TOKEN: credentialis.txt
 
       # #salvataggio del file json convertito in precedenza
       # - name: Update latest version in realtime database
