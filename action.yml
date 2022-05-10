@@ -162,6 +162,16 @@ runs:
         run: echo "LETTURA ${{steps.rilettura.env.BRANCH_REF}}"
         shell: bash
 
+      - name: Operazioni Firebase Db
+        uses: w9jds/firebase-action@master
+        with:
+          #args: logout
+          args: |
+            firebase projects:list
+            firebase database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/intermezzo Example.json
+        env:
+          FIREBASE_TOKEN: 1//09OZ2toSmBVeXCgYIARAAGAkSNwF-L9Irq2pbKAhCShG6V2XeHR-dJMXXe6TobPSj-B-2BMmzEjPn9isf6NBLKjV24Z0KCkBTYeM
+
       #salvataggio del file json convertito in precedenza
       # - name: Update latest version in realtime database
       #   uses: w9jds/firebase-trigger@master
