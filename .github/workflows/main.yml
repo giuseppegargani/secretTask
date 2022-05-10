@@ -133,8 +133,10 @@ jobs:
           base64 --version
           cat ./credentials.json
           cat credentials.json | tr '\n' ' '
-          fileGiuse = ./credentials.json
-          giuse = ${{fromJson(credentials.json)}}
+          giuse= fromJson(steps.outputs.passo.FOO)
+          echo $giuse
+        # fileGiuse = ./credentials.json
+        # giuse = ${{fromJson(credentials.json)}}
         # cat $giuse
 
       # - name: Login Firebase Db
