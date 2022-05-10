@@ -134,8 +134,8 @@ jobs:
           cat ./credentials.json
           cat credentials.json | tr '\n' ' '
           fileGiuse = ./credentials.json
-          giuse = ${{fromJson(fileGiuse)}}
-          cat $giuse
+          giuse = ${{fromJson(credentials.json)}}
+        # cat $giuse
 
       # - name: Login Firebase Db
       #   uses: w9jds/firebase-action@master
