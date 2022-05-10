@@ -179,7 +179,7 @@ jobs:
         with:
           args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime Example.json
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_TOKEN: 1//09OZ2toSmBVeXCgYIARAAGAkSNwF-L9Irq2pbKAhCShG6V2XeHR-dJMXXe6TobPSj-B-2BMmzEjPn9isf6NBLKjV24Z0KCkBTYeM
           #GCP_SA_KEY: ${{ toJson(steps.outputs.set_var.book) }}
           #GCP_SA_KEY: ${{ toJson(steps.outputs.set_var.book) }}
 
