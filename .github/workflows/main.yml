@@ -133,7 +133,8 @@ jobs:
           base64 --version
           cat ./credentials.json
           cat credentials.json | tr '\n' ' '
-          cat fromJson(credentials.json)
+          gatto=fromJson(credentials.json)
+          cat $gatto
 
       # - name: Login Firebase Db
       #   uses: w9jds/firebase-action@master
