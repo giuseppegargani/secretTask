@@ -174,7 +174,7 @@ jobs:
           name: credentials
           path: test.json
 
-      - name: Operazioni Firebase DB
+      - name: Operazioni Firebase D
         uses: w9jds/firebase-action@master
         with:
           args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime Example.json
