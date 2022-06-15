@@ -2,7 +2,7 @@ on: [push]
 
 jobs:
 
-  # PRIMO WORKFLOW (che usa una custom action!!!!!)
+  # PRIMO WORKFLOW (che usa una custom action!!!!!) e che usa un token
   build:
     runs-on: ubuntu-latest
     permissions:
